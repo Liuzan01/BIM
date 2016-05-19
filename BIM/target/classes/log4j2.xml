@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+	<!-- 日志输出平台 -->
+    <Appenders>
+    	<!-- console:表示在控制台输出 -->
+        <Console name="STDOUT" target="SYSTEM_OUT">
+        	<!-- 输出日志的格式 -->
+            <PatternLayout pattern="%d %-5p %C{2} (%F:%L)%n==> %m%n"/>
+        </Console>
+    </Appenders>
+    
+
+    <!-- 日志输出级别 -->
+    <Loggers>   
+    	<!-- 局部日志输出级别                name:指所在的包                level：输出级别-->
+        <Logger name="com.yc" level="debug"/><!-- 是指com.yc 包和 子包 以及 子子包 下的所有类的日志输出级别为debug -->
+        
+        <Root level="warn">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+        
+    </Loggers>
+</Configuration>

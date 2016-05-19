@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 扫描bean包 -->
+	<context:component-scan base-package="com.yc"/>
+	
+	<bean id="measureFilter" class="com.yc.bim.main.impl.BIMeasureFilter" p:minHeight="100" 
+	p:maxHeight="250" p:minWeight="25" p:maxWeight="1000"/>
+	
+	<!-- 自行为切面生成代理对象 
+	proxy-target-class="true"不采用spring的代理（只能代理接口类型，使用CGLib代理框架代理（可以代理接口类型和类类型））
+	-->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+</beans>
